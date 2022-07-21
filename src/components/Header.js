@@ -9,7 +9,7 @@ const Header = () => {
     <header>
       <Navbar>
         <Container>
-          <LinkContainer to="/">
+          <LinkContainer to="/Pokemon-project/">
             <Navbar.Brand>Home</Navbar.Brand>
           </LinkContainer>
         </Container>

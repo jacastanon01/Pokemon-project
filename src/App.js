@@ -12,7 +12,7 @@ const App = () => {
       <Header />
       <Container>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/Pokemon-project' element={<Home />} />
           <Route path='/pokemon/:id' element={<PokemonDetailsPage />} />
         </Routes>
       </Container>
