@@ -1,0 +1,65 @@
+.title {
+    text-decoration: none;
+    color: white;
+}
+
+.title:hover {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bug {
+    background-color: #3b8f03
+}
+
+.grass {
+    background-color: #24c400;
+}
+
+.water {
+    background-color: #1251ff;
+}
+
+.fire {
+    background-color: #ff0000fe;
+}
+
+.normal {
+    background-color: #bebebe6e;
+}
+
+.rock {
+    background-color: olive;
+}
+
+.ground {
+    background-color: #de580f;
+}
+
+.psychic {
+    background-color: #800080;
+}
+
+.fighting {
+    background-color: #f1860f;
+}
+
+.electric {
+    background-color: #ffd900;
+}
+
+.poison {
+    background-color: #d535fd;
+}
+
+.flying {
+    background-color: #7fc5ff;
+}
+
+.fairy {
+    background-color: #f0f;
+}
+
+.dragon {
+    background-color: #1299cf;
+}
