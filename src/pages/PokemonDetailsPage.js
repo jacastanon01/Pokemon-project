@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const PokemonDetailsPage = () => {
 
@@ -31,7 +31,7 @@ const PokemonDetailsPage = () => {
             const fiveMoves = pokemonDetails.moves.slice(0, 5)
             console.log(fiveMoves)
             return fiveMoves.map(({ move }) => (
-                <ListGroupItem>{move.name}</ListGroupItem>
+                <ListGroupItem key={move.name}>{move.name}</ListGroupItem>
             ))
         }
     }

@@ -6,7 +6,7 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 const Header = () => {
   return (
-    <header>
+    <header className='header d-flex justify-content-center'>
       <Navbar>
         <Container>
           <LinkContainer to="/Pokemon-project/">
