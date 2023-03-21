@@ -16,11 +16,11 @@
 }
 
 .bug {
-    background-color: #3b8f03
+    background-color: #275a06
 }
 
 .grass {
-    background-color: #24c400;
+    background-color: #29b00b;
 }
 
 .water {
@@ -32,7 +32,7 @@
 }
 
 .normal {
-    background-color: #bebebe6e;
+    background-color: #bebebedb;
 }
 
 .rock {
@@ -48,11 +48,11 @@
 }
 
 .fighting {
-    background-color: #f1860f;
+    background-color: #ff8c09;
 }
 
 .electric {
-    background-color: #ffd900;
+    background-color: #ffd900ec;
 }
 
 .poison {
@@ -69,4 +69,12 @@
 
 .dragon {
     background-color: #1299cf;
+}
+
+.ghost {
+    background-color: darkslateblue;
+}
+
+.ice {
+    background-color: paleturquoise;
 }
