@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PokemonCard from './PokemonCard';
@@ -10,8 +10,8 @@ function Home() {
     const [isLoading, setIsLoading] = useState(true)
     // To limit to first gen use param ?limit=151 maybe?
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
-    const [nextUrl, setNextUrl] = useState()
-    const [prevUrl, setPrevUrl] = useState()
+    const [nextUrl, setNextUrl] = useState(null)
+    const [prevUrl, setPrevUrl] = useState(null)
 
     const getPokemon = async () => {
         setIsLoading(true)
@@ -22,10 +22,10 @@ function Home() {
         setIsLoading(false)
     }
 
-    const getPokemonData = async (poke) => {
+    const getPokemonData = (poke) => {
         try {
             poke.map(async ({ url }) => {
-                const res = await axios.get(url)
+                const res = await axios.get(url) //{ signal: controller.signal }
                 setPokemonData(prevState => {
                     //console.log('pokemonData:', pokemonData)
                     prevState = [...prevState, res.data]
@@ -48,11 +48,17 @@ function Home() {
         setPokemonData([])
         setUrl(prevUrl)
     }
-
+    let ignore = false
     useEffect(() => {
-        getPokemon()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        if (!ignore) {
+            getPokemon()
+        }
+
+        return () => {
+            ignore = true
+        }
     }, [url])
+
 
 
 
@@ -73,7 +79,10 @@ function Home() {
                     )) : <div>Loading...</div>}
             </Row>
             <Row className='d-flex justify-content-center'>
-                <Buttons onNext={handleClickNext} onPrev={handleClickPrev}/>
+                <Buttons 
+                    onNext={handleClickNext}
+                    onPrev={handleClickPrev}
+                />
             </Row>
         </>
     );
