@@ -6,8 +6,6 @@ import Row from 'react-bootstrap/Row'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import { useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
 
 const PokemonDetailsPage = () => {
 
@@ -53,7 +51,6 @@ const PokemonDetailsPage = () => {
 
     useEffect(() => {
         getPokemon()
-        //console.log(pokemonDetails)
     }, [])
 
     return (

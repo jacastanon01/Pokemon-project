@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState} from 'react';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PokemonCard from './PokemonCard';
@@ -8,7 +8,6 @@ import Buttons from './Buttons';
 function Home() {
     const [pokemonData, setPokemonData] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    // To limit to first gen use param ?limit=151 maybe?
     const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
     const [nextUrl, setNextUrl] = useState(null)
     const [prevUrl, setPrevUrl] = useState(null)
@@ -25,9 +24,8 @@ function Home() {
     const getPokemonData = (poke) => {
         try {
             poke.map(async ({ url }) => {
-                const res = await axios.get(url) //{ signal: controller.signal }
+                const res = await axios.get(url)
                 setPokemonData(prevState => {
-                    //console.log('pokemonData:', pokemonData)
                     prevState = [...prevState, res.data]
                     prevState.sort((a,b) => a.id>b.id ? 1 : -1)
                     return prevState
