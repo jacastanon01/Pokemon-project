@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import { useParams } from 'react-router-dom'
+import LoadingSpinner from '../components/LoadingSpinner'
 
 const PokemonDetailsPage = () => {
 
@@ -57,7 +58,7 @@ const PokemonDetailsPage = () => {
         <>
 
             {
-                isLoading ? <div>Loading...</div>
+                isLoading ? <LoadingSpinner />
                     : (
                         <Row className=''>
                             <Col className=''>

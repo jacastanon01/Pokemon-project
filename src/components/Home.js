@@ -4,6 +4,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PokemonCard from './PokemonCard';
 import Buttons from './Buttons';
+import LoadingSpinner from './LoadingSpinner';
 
 function Home() {
     const [pokemonData, setPokemonData] = useState([])
@@ -74,7 +75,8 @@ function Home() {
                                 capitalize={capitalize}
                             />
                         </Col>
-                    )) : <div>Loading...</div>}
+                    )) : <LoadingSpinner />
+                }
             </Row>
             <Row className='d-flex justify-content-center'>
                 <Buttons 
