@@ -1,5 +1,6 @@
-import axios from 'axios'
+import axios from '../api/pokemonAPI'
 import { useEffect, useState} from 'react';
+import useAxiosFetch from '../hooks/useAxiosFetch';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import PokemonCard from './PokemonCard';
@@ -8,19 +9,31 @@ import LoadingSpinner from './LoadingSpinner';
 
 function Home() {
     const [pokemonData, setPokemonData] = useState([])
-    const [isLoading, setIsLoading] = useState(true)
-    const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
-    const [nextUrl, setNextUrl] = useState(null)
-    const [prevUrl, setPrevUrl] = useState(null)
+    //const [isLoading, setIsLoading] = useState(true)
+    //const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon/')
+    //const [nextUrl, setNextUrl] = useState(null)
+    //const [prevUrl, setPrevUrl] = useState(null)
 
-    const getPokemon = async () => {
-        setIsLoading(true)
-        const { data } = await axios.get(url)
-        setNextUrl(data.next)
-        setPrevUrl(data.previous)
-        getPokemonData(data.results)
-        setIsLoading(false)
-    }
+    const { data, isLoading, updateUrl } = useAxiosFetch({
+        axiosInstance: axios,
+        method: 'GET',
+        dataUrl: '/',
+        requestConfig: {
+            headers: {
+                'Content-Language': 'en-US'
+            }
+        }
+
+    })
+
+    // const getPokemon = async () => {
+    //     setIsLoading(true)
+    //     const { data } = await axios.get(url)
+    //     setNextUrl(data.next)
+    //     setPrevUrl(data.previous)
+    //     getPokemonData(data.results)
+    //     setIsLoading(false)
+    // }
 
     const getPokemonData = (poke) => {
         try {
@@ -41,22 +54,27 @@ function Home() {
 
     const handleClickNext = () => {
         setPokemonData([])
-        setUrl(nextUrl)
+        //setUrl(nextUrl)
+        axios.defaults.baseURL = data.next.toString()
+        updateUrl(data.next)
     }
     const handleClickPrev = () => {
         setPokemonData([])
-        setUrl(prevUrl)
+        //setUrl(prevUrl)
+        axios.defaults.baseURL = data.previous.toString()
+        updateUrl(data.previous)
     }
+
     let ignore = false
     useEffect(() => {
         if (!ignore) {
-            getPokemon()
+            getPokemonData(data.results)
         }
 
         return () => {
             ignore = true
         }
-    }, [url])
+    }, [data])
 
 
 
