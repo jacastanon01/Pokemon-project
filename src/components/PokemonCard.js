@@ -16,10 +16,10 @@ const PokemonCard = ({ pokeData, name, id, sprites, type, capitalize }) => {
                     variant='top'
                 />
                 <Card.Body className={`${type.name}`}>
-                    <Card.Title className="title">
-                        {`#${id} ${capitalize(name)}`}
+                    <Card.Title className="title text-capitalize">
+                        {`#${id} ${name}`}
                         <br />
-                        {capitalize(type.name)}
+                        {type.name}
                         
                     </Card.Title>
                 </Card.Body>

@@ -50,7 +50,6 @@ function Home() {
         }
     }
 
-    const capitalize = (word) => word[0].toUpperCase() + word.substring(1)
 
     const handleClickNext = () => {
         setPokemonData([])
@@ -90,7 +89,6 @@ function Home() {
                                 id={id} 
                                 sprites={sprites} 
                                 type={types[0].type} 
-                                capitalize={capitalize}
                             />
                         </Col>
                     )) : <LoadingSpinner />
