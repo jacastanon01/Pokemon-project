@@ -55,7 +55,7 @@ const fetchMovesData = () => {
                 const res = await axios.get(move.url.toString())
                 const {name, pp, type} = res.data
                 setMoves(prev => {
-                    return [{...prev}, name, pp, type]
+                    return [...prev, {name, pp, type}]
                 })
         }
 
@@ -358,7 +358,7 @@ const PokemonDetails1 = () => {
                     )
             } */}
                      
-                        
+                      <div>HELLO</div>  
                 {Object.keys(pokemonDetails).length > 0 && <PokemonDetails pokemonDetails={pokemonDetails} id={id} listMoves={listMoves} />}
                     {/*{!isLoading && <PokemonDetails pokemonDetails={pokemonDetails} id={id} listMoves={listMoves} />}*/}
         </>
