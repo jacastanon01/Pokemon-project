@@ -44,5 +44,10 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://jacastanon01.github.io/Pokemon-project/"
+  "homepage": "https://jacastanon01.github.io/Pokemon-project/",
+  "devDependencies": {
+    "eslint": "^8.7.0",
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "^2.5.1"
+  }
 }
