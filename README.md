@@ -1,6 +1,6 @@
 <h1 align="center">Pokemon Project</h1>
 
-<p align="center">The PokeApi is a RESTful API created to explore the wide world of Pokemon. This project utulizes the axios library to fetch data from multiple endpoints and React for the UI. Browse the multiple first generation Pokemon of your childhood on any device. More features are coming! </p>
+<p align="center">The PokeApi is a RESTful API created to explore the wide world of Pokemon. This project utilizes the axios library to fetch data from multiple endpoints and React for the UI. Browse the multiple first generation Pokemon of your childhood on any device. More features are coming! </p>
 
 ## Links
 
