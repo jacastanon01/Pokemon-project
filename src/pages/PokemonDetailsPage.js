@@ -3,7 +3,7 @@ import axios from "axios";
 import ListGroupItem from "react-bootstrap/ListGroupItem";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
-import PokemonDetails from "./PokemonDetails";
+import PokemonDetails from "../components/PokemonDetails";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 
 const PokemonDetailsPage = () => {

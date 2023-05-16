@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import useAxiosFetch from "../hooks/useAxiosFetch";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import PokemonCard from "./PokemonCard";
-import Buttons from "./Buttons";
-import LoadingSpinner from "./LoadingSpinner";
+import PokemonCard from "../components/PokemonCard";
+import Buttons from "../components/Buttons";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);

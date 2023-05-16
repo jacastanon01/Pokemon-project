@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import Home from './components/Home'
+import Home from './pages/Home'
 import Header from './components/Header'
 import Container from 'react-bootstrap/Container';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
