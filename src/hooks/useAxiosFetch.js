@@ -1,6 +1,17 @@
 import { useState, useEffect } from 'react'
+import axios from '../api/pokemonAPI'
 
-const useAxiosFetch = (configObj) => {
+export const requestObj = {
+    axiosInstance: axios,
+    method: "GET",
+    requestConfig: {
+      headers: {
+        "Content-Language": "en-US",
+      },
+    },
+  }
+
+export const useAxiosFetch = (configObj) => {
     const {
         axiosInstance,
         method,
@@ -9,7 +20,7 @@ const useAxiosFetch = (configObj) => {
     } = configObj
     //console.log(dataUrl)
     const [url, updateUrl] = useState(dataUrl)
-    const [data, setData] = useState([])
+    const [data, setData] = useState({})
     const [fetchError, setFetchError] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
 
@@ -32,7 +43,7 @@ const useAxiosFetch = (configObj) => {
             } catch(err) {
                 if (isMounted){
                     setFetchError(err.message)
-                    setData([])
+                    setData({})
                 }
             } finally {
                 isMounted && setIsLoading(false)
@@ -52,5 +63,3 @@ const useAxiosFetch = (configObj) => {
 
     return { data, fetchError, isLoading, updateUrl }
 }
-
-export default useAxiosFetch

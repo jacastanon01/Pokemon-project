@@ -4,7 +4,7 @@ import ListGroupItem from "react-bootstrap/ListGroupItem";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import PokemonDetails from "../components/PokemonDetails";
-import useAxiosFetch from "../hooks/useAxiosFetch";
+import { useAxiosFetch, requestObj } from "../hooks/useAxiosFetch";
 
 const PokemonDetailsPage = () => {
   const [pokemonDetails, setPokemonDetails] = useState({});
@@ -13,23 +13,16 @@ const PokemonDetailsPage = () => {
   const { id } = useParams();
   let mounted =  false;
 
-  const { data, isLoading } = useAxiosFetch({
-    axiosInstance: axios,
-    method: 'GET',
-    dataUrl: `https://pokeapi.co/api/v2/pokemon/${id}`,
-    requestConfig: {
-        headers: {
-            'Content-Language': 'en-US',
-            //'Accept': 'text/html'
-        }
-    }
+  const { data, isLoading, fetchError } = useAxiosFetch({
+    ...requestObj,
+    dataUrl: `/${id}`
 })
 
   const getPokemonData = async (result) => {
-    if (!mounted) {
+    if (!fetchError && Object.keys(data).length > 0) {
         console.log(result)
-        setPokemonDetails(result)
-        setMovesData(result.moves.slice(0,5))
+        setPokemonDetails(await result)
+        setMovesData(result?.moves.slice(0,5))
     }
 }
 
@@ -38,8 +31,8 @@ const PokemonDetailsPage = () => {
       movesData.forEach(async ({ move }) => {
           try {
               if (!mounted){
-                  const res = await axios.get(move.url.toString())
-                  const {name, pp, type} = res.data
+                  const res = await axios.get(move?.url.toString())
+                  const {name, pp, type} = await res.data
                   setMoves(prev => {
                       return [...prev, {name, pp, type}]
                   })
@@ -67,13 +60,19 @@ const PokemonDetailsPage = () => {
   })
 
   useEffect(() => {
-    getPokemonData(data);
+    if (!mounted) {
+      getPokemonData(data);
+
+    }
 
     return () => mounted = true
   }, [data]);
 
   useEffect(() => {
-    fetchMovesData()
+    if (!mounted){
+      fetchMovesData()
+
+    }
 
     return () => mounted = true
   }, [movesData])
@@ -81,7 +80,7 @@ const PokemonDetailsPage = () => {
   return (
     <>
       {
-        !isLoading ? (Object.keys(pokemonDetails).length > 0 && <PokemonDetails pokemonDetails={pokemonDetails} id={id} listMoves={fiveMoves} />) 
+        !isLoading && Object.keys(pokemonDetails).length > 0 ? (<PokemonDetails pokemonDetails={pokemonDetails} id={id} listMoves={fiveMoves} />) 
         : <LoadingSpinner />    
       }
     </>
