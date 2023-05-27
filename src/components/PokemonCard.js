@@ -16,8 +16,7 @@ const PokemonCard = ({ name, id, sprites, type }) => {
                     <Card.Title className="title text-capitalize">
                         {`#${id} ${name}`}
                         <br />
-                        {type.name}
-                        
+                        {type.name}                       
                     </Card.Title>
                 </Card.Body>
             </Link>

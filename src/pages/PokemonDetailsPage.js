@@ -11,7 +11,6 @@ const PokemonDetailsPage = () => {
   const [moves,setMoves] = useState([])
   const [movesData, setMovesData] = useState([])
   const { id } = useParams();
-  let mounted =  false;
 
   const { data, isLoading, fetchError } = useAxiosFetch({
     ...requestObj,
@@ -30,7 +29,7 @@ const PokemonDetailsPage = () => {
       console.log(movesData, "----")
       movesData.forEach(async ({ move }) => {
           try {
-              if (!mounted){
+              if (!isLoading){
                   const res = await axios.get(move?.url.toString())
                   const {name, pp, type} = await res.data
                   setMoves(prev => {
@@ -53,34 +52,32 @@ const PokemonDetailsPage = () => {
               {/* TODO: get damage of move from move.url `https://pokeapi.co/api/v2/move/${id}`
                   <span class="badge bg-primary rounded-pill">14PP</span>
               */}
-              <span className={`${type.name} badge rounded-pill`}><b>{pp}PP</b></span>
-              
+              <span className={`${type.name} badge rounded-pill`}><b>{pp}PP</b></span>             
           </ListGroupItem>
       )
   })
 
   useEffect(() => {
+    let mounted = false
     if (!mounted) {
       getPokemonData(data);
-
     }
-
     return () => mounted = true
   }, [data]);
 
   useEffect(() => {
+    let mounted = false
     if (!mounted){
       fetchMovesData()
-
     }
-
     return () => mounted = true
   }, [movesData])
 
   return (
     <>
       {
-        !isLoading && Object.keys(pokemonDetails).length > 0 ? (<PokemonDetails pokemonDetails={pokemonDetails} id={id} listMoves={fiveMoves} />) 
+        !isLoading && Object.keys(pokemonDetails).length > 0 
+        ? (<PokemonDetails pokemonDetails={pokemonDetails} id={id} listMoves={fiveMoves} />) 
         : <LoadingSpinner />    
       }
     </>
