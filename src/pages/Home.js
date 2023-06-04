@@ -1,19 +1,24 @@
 import axios from "../api/pokemonAPI";
 import { useEffect, useState } from "react";
-import { useAxiosFetch, requestObj } from "../hooks/useAxiosFetch";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import PokemonCard from "../components/PokemonCard";
 import Buttons from "../components/Buttons";
 import LoadingSpinner from "../components/LoadingSpinner";
+import { useFetcher } from "../hooks/useFetcher";
 
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);
+  let ignore = false;
 
-  const { data, isLoading, updateUrl } = useAxiosFetch({
-    ...requestObj,
-    dataUrl: '/'
-  });
+  const { data, isLoading, error} = useFetcher('pokemon')
+
+  console.log(data)
+
+  // const { data, isLoading, updateUrl } = useAxiosFetch({
+  //   ...requestObj,
+  //   dataUrl: '/'
+  // });
 
   const getPokemonData = (poke) => {
     try {
@@ -34,18 +39,18 @@ function Home() {
     setPokemonData([]);
     console.log(data.next)
     //axios.defaults.baseURL = data.next.toString();
-    updateUrl(data.next);
+    //updateUrl(data.next);
   };
   const handleClickPrev = () => {
     setPokemonData([]);
     //axios.defaults.baseURL = data.previous.toString();
-    updateUrl(data.previous);
+    //updateUrl(data.previous);
   };
 
   useEffect(() => {
-    let ignore = false;
+
     if (!ignore) {
-      getPokemonData(data.results);
+      data && getPokemonData(data.results);
     }
 
     return () => {

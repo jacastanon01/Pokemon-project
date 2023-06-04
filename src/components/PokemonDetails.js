@@ -2,9 +2,25 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import ListGroup from "react-bootstrap/ListGroup";
 import Card from "react-bootstrap/Card";
+import { useFetcher } from "../hooks/useFetcher";
+import PokemonMove from "./PokemonMove";
 
 const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
-  const { sprites, types } = pokemonDetails
+  //const moves = PokemonDetails.moves.slice(0,5)
+  const { sprites, types, moves } = pokemonDetails
+  //const { data, error, isLoading} = useFetcher('move', pokemonDetails.move.name)
+
+  //let moveGroup = []
+  // for (let i=0; i <5; i++){
+  //   //moveGroup.push(<PokemonMove move={moves[i].move}/>)
+    
+  // }
+  const fiveMoves = moves && moves?.slice(0,5)
+
+  const moveGroup = moves && fiveMoves?.map(({ move }) => {
+    return (move ? <PokemonMove key={move.name} move={move} /> : <div>No more moves to display</div>)
+  })
+
   return (
     <Row>
       <Col>
@@ -65,7 +81,7 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
         <Col className="h-300">
           <Card>
             <ListGroup sm={6} className="pb-3  list-group-flush">
-              {listMoves}
+              {moveGroup}
             </ListGroup>
           </Card>
         </Col>

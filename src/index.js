@@ -1,15 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-//import '../node_modules/react-bootstrap/dist/css/react-bootstrap.css'
-//import '../node_modules/react-bootstrap/dist/react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
+import {SWRConfig} from "swr"
+import axios from "axios"
+
+const fetcher = (...args) => axios.get(...args).then(res => res.data)
+console.log(fetcher('https://pokeapi.co/api/v2/pokemon'))
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <SWRConfig value={{fetcher}}>
+      <App />
+    </SWRConfig>
   </React.StrictMode>
 );
