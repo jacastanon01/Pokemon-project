@@ -5,7 +5,7 @@ import './PokemonCard.css'
 
 const PokemonCard = ({ name, id, sprites, type }) => {
     return (
-        <Card className='my-3 p-3 rounded text-center shadow mb-5 bg-white'>
+        <Card className='my-3 p-3 rounded text-center shadow mb-5'>
             <Link to={`/pokemon/${id}`} style={{ textDecoration: 'none' }}>
                 <Card.Img
                     style={{ width: '8rem' }}
@@ -13,7 +13,7 @@ const PokemonCard = ({ name, id, sprites, type }) => {
                     variant='top'
                 />
                 <Card.Body className={`${type.name}`}>
-                    <Card.Title className="title text-capitalize">
+                    <Card.Title className="title text-capitalize text-black">
                         {`#${id} ${name}`}
                         <br />
                         {type.name}                       

@@ -22,13 +22,13 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
   })
 
   return (
-    <Row>
+    <Row className="container-fluid">
       <Col>
         <Col>
           {types.map(({ type }) => (
             <Card
               key={type.name}
-              className={`${type.name} text-capitalize text-center text-white rounded p-3 fs-3`}
+              className={`${type.name} text-capitalize text-center rounded p-3 fs-3`}
             >
               <strong>{type.name}</strong>
             </Card>
@@ -60,30 +60,27 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
               </Col>
             </Row>
             <Card.Body
-              className={`${types[0].type.name} text-white rounded text-center my-5`}
+              className={`${types[0].type.name} rounded text-center my-5 w-100`}
             >
-              <Card.Title style={{ minWidth: "30rem" }} className="fs-1">
+              <Card.Title style={{ minWidth: "20rem" }} className="fs-1 fw-bolder">
                 <strong className="text-capitalize">
                   #{id} {pokemonDetails.name}
-                  {/* {pokemonDetails.name[0].toUpperCase() +
-                      pokemonDetails.name.substring(1)} */}
                 </strong>
               </Card.Title>
-              <Card.Text>
-                <h4>Height: {Math.round(pokemonDetails.height * 3.93)}cm</h4>
+              <Card.Text className="fs-3 fw-bold">
+                Height: {Math.round(pokemonDetails.height * 3.93)}cm
               </Card.Text>
-              <Card.Text>
-                <h4>Weight: {Math.round(pokemonDetails.weight * 0.22)}lbs</h4>
+              <Card.Text className="fs-3 fw-bold">
+                Weight: {Math.round(pokemonDetails.weight * 0.22)}lbs
               </Card.Text>
             </Card.Body>
           </Card>
         </Col>
-        <Col className="h-300">
-          <Card>
-            <ListGroup sm={6} className="pb-3  list-group-flush">
+        <Col className="">
+
+            <ListGroup sm={6} className="pb-3">
               {moveGroup}
             </ListGroup>
-          </Card>
         </Col>
       </Col>
     </Row>

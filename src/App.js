@@ -7,12 +7,13 @@ import PokemonDetailsPage from './pages/PokemonDetailsPage';
 
 
 const App = () => {
+  const [ offset, setOffset ]= useState(0)
   return (
     <Router>
       <Header />
       <Container>
         <Routes>
-          <Route path='/Pokemon-project' element={<Home />} />
+          <Route path='/Pokemon-project' element={<Home offset={offset} setOffset={setOffset} />} />
           <Route path='/pokemon/:id' element={<PokemonDetailsPage />} />
         </Routes>
       </Container>

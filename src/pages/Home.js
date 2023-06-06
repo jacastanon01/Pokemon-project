@@ -6,14 +6,18 @@ import PokemonCard from "../components/PokemonCard";
 import Buttons from "../components/Buttons";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useFetcher } from "../hooks/useFetcher";
+import useSwr, { preload } from "swr"
 
-function Home() {
+const Page = ({ offset }) => {
+  const { data } = useFetcher(`pokemon?offset=${offset}`)
+}
+
+function Home({offset, setOffset}) {
   const [pokemonData, setPokemonData] = useState([]);
+  //const [offset, setOffset] = useState(0)
   let ignore = false;
 
-  const { data, isLoading, error} = useFetcher('pokemon')
-
-  console.log(data)
+  const { data, isLoading, error} = useFetcher(`pokemon?offset=${offset}`)
 
   // const { data, isLoading, updateUrl } = useAxiosFetch({
   //   ...requestObj,
@@ -38,11 +42,13 @@ function Home() {
   const handleClickNext = () => {
     setPokemonData([]);
     console.log(data.next)
+    setOffset(prev => prev+20)
     //axios.defaults.baseURL = data.next.toString();
     //updateUrl(data.next);
   };
   const handleClickPrev = () => {
     setPokemonData([]);
+    setOffset(prev => prev > 0 ? prev-20 : 0)
     //axios.defaults.baseURL = data.previous.toString();
     //updateUrl(data.previous);
   };
@@ -51,12 +57,13 @@ function Home() {
 
     if (!ignore) {
       data && getPokemonData(data.results);
+      //data && preload(data.next)
     }
 
     return () => {
       ignore = true;
     };
-  }, [data]);
+  }, [data, offset]);
 
   return (
     <>

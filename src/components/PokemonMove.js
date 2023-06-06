@@ -1,18 +1,34 @@
 import axios from "axios"
 import { useFetcher } from "../hooks/useFetcher"
 import ListGroupItem from "react-bootstrap/ListGroupItem"
+import { Row, Col } from "react-bootstrap"
 
 
 const PokemonMove = ({ move }) => {
     const { data: moveData, error, isLoading} = useFetcher('move', move.name)
-    const {name, pp, type} = !isLoading && moveData
+    const {name, pp, type, power, accuracy, effect_entries} = !isLoading && moveData
+
+    const flexBasis = { 'flex': 1}
 
         return !isLoading ? (
-            <ListGroupItem as="li" className="p-inherit d-flex justify-content-between align-items-start">
-                <section className="ms-2 me-auto">
-                    <div className="fw-bold">{name.toUpperCase()}</div>               
-                </section>
-                <span className={`${type.name} badge rounded-pill`}><b>{pp}PP</b></span>             
+            <ListGroupItem as="li" className="fw-bold">
+                <Row className={`d-flex`}>
+                    <Col style={flexBasis} className="m-auto">{name.toUpperCase()}</Col>               
+                    {   
+                        accuracy && power ? (
+                            <>
+                                <Col style={flexBasis} className="m-auto">ACCURACY: {accuracy}</Col>
+                                <Col style={flexBasis} className="m-auto">POWER: {power}</Col> 
+                            </> ) : 
+                            <>  
+                                <Col style={flexBasis} className="m-auto">EFFECT: </Col>
+                                <Col style={flexBasis} className="m-auto">{effect_entries[0].short_effect}</Col>
+                            </>
+                    }           
+                    <Col style={flexBasis} className={`${type.name} rounded-pill d-flex justify-content-center align-items-center`}>
+                        {pp}PP
+                    </Col>
+                </Row>
             </ListGroupItem>
         ) : <div></div>
 }

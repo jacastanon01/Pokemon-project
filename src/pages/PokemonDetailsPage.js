@@ -12,6 +12,7 @@ const PokemonDetailsPage = () => {
   const { id } = useParams();
 
   const { data, error, isLoading } = useFetcher('pokemon', id)
+
   //const pokemon = useFetcher('pokemon', id)
   // console.log(data)
   // const fiveMovesData = data && data.moves.slice(0,5)
