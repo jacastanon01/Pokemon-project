@@ -10,7 +10,7 @@ const PokemonMove = ({ move }) => {
 
     const flexBasis = { 'flex': 1}
 
-        return !isLoading ? (
+        return moveData && (
             <ListGroupItem as="li" className="fw-bold">
                 <Row className={`d-flex`}>
                     <Col style={flexBasis} className="m-auto">{name.toUpperCase()}</Col>               
@@ -30,7 +30,7 @@ const PokemonMove = ({ move }) => {
                     </Col>
                 </Row>
             </ListGroupItem>
-        ) : <div></div>
+        )
 }
 
 export default PokemonMove

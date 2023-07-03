@@ -6,16 +6,253 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: rgb(214,21,57);
-  background: linear-gradient(0deg, rgba(214,21,57,1) 14%, rgba(45,178,253,1) 100%);
+  background: rgb(214, 21, 57);
+  background: linear-gradient(
+    0deg,
+    rgba(214, 21, 57, 1) 14%,
+    rgba(0, 212, 255, 1) 100%
+  );
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+/* GRADIENT BACKGROUNDS  */
+
+.bug1 {
+  background: radial-gradient(
+    circle,
+    rgba(170, 187, 34, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: #fff;
+}
+
+.grass1 {
+  background: radial-gradient(
+    circle,
+    rgba(119, 204, 85, 1) 50%,
+    rgb(0, 212, 255) 100%
+  );
+  color: #fff;
+}
+
+.water1 {
+  background: radial-gradient(
+    circle,
+    rgba(51, 153, 255, 1) 50%,
+    /* rgb(9, 9, 121) 50%, */ rgb(0, 212, 255) 100%
+  );
+}
+
+.fire1 {
+  background: radial-gradient(
+    circle,
+    rgba(255, 68, 34, 1) 50%,
+    rgb(0, 212, 255) 100%
+  );
+  /* color: #fff; */
+}
+
+.normal1 {
+  background: radial-gradient(
+    circle,
+    rgba(170, 170, 153, 1) 50%,
+    rgb(0, 212, 255) 100%
+  );
+  /* color: #fff; */
+}
+
+.rock1 {
+  background: radial-gradient(
+    circle,
+    rgba(184, 160, 56, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.ground1 {
+  background: radial-gradient(
+    circle,
+    rgba(224, 192, 104, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.psychic1 {
+  background: radial-gradient(
+    circle,
+    rgba(198, 44, 198, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.fighting1 {
+  background: radial-gradient(
+    circle,
+    rgba(187, 85, 68, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.electric1 {
+  background: radial-gradient(
+    circle,
+    rgba(255, 217, 0, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.poison1 {
+  background: radial-gradient(
+    circle,
+    rgba(170, 85, 153, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.flying1 {
+  background: radial-gradient(
+    circle,
+    rgba(136, 153, 255, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.fairy1 {
+  background: radial-gradient(
+    circle,
+    rgba(238, 153, 238, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+.dragon1 {
+  background: radial-gradient(
+    circle,
+    rgba(112, 56, 248, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+.steel1 {
+  background: radial-gradient(
+    circle,
+    rgba(170, 170, 187, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+.dark1 {
+  background: radial-gradient(
+    circle,
+    rgba(62, 62, 62, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: #fff;
+}
+.ghost1 {
+  background: radial-gradient(
+    circle,
+    rgba(102, 102, 187, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+.ice1 {
+  background: radial-gradient(
+    circle,
+    rgba(152, 216, 216, 1) 50%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  /* color: #fff; */
+}
+
+/* BACKGROUND COLORS */
+
+.grass {
+  background-color: #77cc55;
+}
+.bug {
+  background-color: #ab2;
+}
+.water {
+  background-color: #3399ff;
+}
+
+.fire {
+  background-color: #ff4422;
+}
+
+.normal {
+  background-color: #aaaa99;
+}
+
+.rock {
+  background-color: #b8a038;
+}
+
+.ground {
+  background-color: #f2c068;
+}
+
+.psychic {
+  background-color: #c62cc6;
+}
+
+.fighting {
+  background-color: #b54;
+}
+
+.electric {
+  background-color: #ffd900ec;
+}
+
+.poison {
+  background-color: #a59;
+}
+
+.flying {
+  background-color: #89f;
+}
+
+.fairy {
+  background-color: #e9e;
+}
+
+.dragon {
+  background-color: #1299cf;
+}
+
+.ghost {
+  background-color: #6666bb;
+}
+
+.ice {
+  background-color: #6cf;
+  /* background-color: #98D8D8 */
+}
+
+.dark {
+  background-color: #3e3e3e;
+  color: #fff;
+}
+
+.steel {
+  background-color: #aaaabb;
 }

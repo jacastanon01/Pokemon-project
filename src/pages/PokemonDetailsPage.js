@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import PokemonDetails from "../components/PokemonDetails";
 import { useFetcher } from "../hooks/useFetcher"
-import Fade from "react-bootstrap/Fade"
-import {useSwr } from "swr";
+import ErrorBoundary from "./ErrorBoundary";
 
 const NextPokemon = ({ nextId }) => {
-  const {data: next, isLoading } = useFetcher('pokemon', nextId)
+  const {data: next, isLoading, error } = useFetcher('pokemon', nextId)
+
+  if (error) return (<ErrorBoundary />)
 
   return (
     !isLoading 
@@ -26,26 +27,28 @@ const PokemonDetailsPage = () => {
 
   const { data, error, isLoading } = useFetcher('pokemon', id)
 
-  const getPokemonData = async (result) => {
-    if (!error && Object.keys(data).length > 0) {
-        setPokemonDetails(result)
-    }
-  }
+  // const getPokemonData = async (result) => {
+  //   if (!error && Object.keys(data).length > 0) {
+  //       setPokemonDetails(result)
+  //   }
+  // }
 
-  useEffect(() => {
-    let mounted = false
-    if (!mounted) {
-      getPokemonData(data);
-    }
-    return () => mounted = true
-  }, [data]);
+  // useEffect(() => {
+  //   let mounted = false
+  //   if (!mounted) {
+  //     getPokemonData(data);
+  //   }
+  //   return () => mounted = true
+  // }, [data]);
+
+  if (error) return (<ErrorBoundary />)
 
   return (
     <>
       <div style={{display: "none"}}><NextPokemon nextId={+id + 1}/></div>
       {
-        !isLoading && Object.keys(pokemonDetails).length > 0 
-        ? <PokemonDetails pokemonDetails={pokemonDetails} id={id} />
+        !isLoading && Object.keys(data).length > 0 
+        ? <PokemonDetails pokemonDetails={data} id={id} />
         : <LoadingSpinner />    
       }
     </>
