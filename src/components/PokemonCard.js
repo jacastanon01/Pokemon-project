@@ -22,7 +22,7 @@ const PokemonCard = ({ pokemon }) => {
             src={data.sprites.front_default}
             variant="top"
           />
-          <Card.Body className={`${data.types[0].type.name}1`}>
+          <Card.Body className={`${data.types[0].type.name}`}>
             <Card.Title
               className={`title text-capitalize ${
                 data.types[0].type.name.toLowerCase() !== "dark" && "text-black"
