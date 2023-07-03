@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.css'
 import App from './App';
 import {SWRConfig} from "swr"
 import axios from "axios"
-import { useState } from 'react';
 
 const fetcher = (...args) => axios.get(...args).then(res => res.data)
 

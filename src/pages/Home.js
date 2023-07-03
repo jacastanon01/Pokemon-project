@@ -1,5 +1,3 @@
-import api from "../api/pokemonAPI";
-import { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import PokemonCard from "../components/PokemonCard";
@@ -7,10 +5,8 @@ import Buttons from "../components/Buttons";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useFetcher } from "../hooks/useFetcher";
 import ErrorBoundary from "./ErrorBoundary";
-import PokemonDetails from "../components/PokemonDetails";
 
 function Home({ offset, setOffset }) {
-  const [pokemonData, setPokemonData] = useState([]);
 
   const { data, isLoading, error } = useFetcher(`pokemon?offset=${offset}`);
 
@@ -38,13 +34,11 @@ function Home({ offset, setOffset }) {
   // };
 
   const handleClickNext = () => {
-    setPokemonData([]);
     setOffset((prev) => prev + 20);
     //axios.defaults.baseURL = data.next.toString();
     //updateUrl(data.next);
   };
   const handleClickPrev = () => {
-    setPokemonData([]);
     setOffset((prev) => (prev > 0 ? prev - 20 : 0));
     //axios.defaults.baseURL = data.previous.toString();
     //updateUrl(data.previous);

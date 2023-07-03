@@ -1,4 +1,3 @@
-import React, { Suspense, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../components/LoadingSpinner";
 import PokemonDetails from "../components/PokemonDetails";
@@ -22,7 +21,6 @@ const NextPokemon = ({ nextId }) => {
 }
 
 const PokemonDetailsPage = () => {
-  const [pokemonDetails, setPokemonDetails] = useState({});
   const { id } = useParams();
 
   const { data, error, isLoading } = useFetcher('pokemon', id)

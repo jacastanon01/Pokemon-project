@@ -8,7 +8,7 @@ import ErrorBoundary from "../pages/ErrorBoundary";
 // style={{backgroundColor: "#00d4ff"}}
 
 const PokemonCard = ({ pokemon }) => {
-  const { data, isLoading, error } = useFetcher("pokemon", pokemon);
+  const { data, error } = useFetcher("pokemon", pokemon);
   if (error) {
     return <ErrorBoundary />;
   }

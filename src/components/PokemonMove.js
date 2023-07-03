@@ -1,11 +1,10 @@
-import axios from "axios"
 import { useFetcher } from "../hooks/useFetcher"
 import ListGroupItem from "react-bootstrap/ListGroupItem"
 import { Row, Col } from "react-bootstrap"
 
 
 const PokemonMove = ({ move }) => {
-    const { data: moveData, error, isLoading} = useFetcher('move', move.name)
+    const { data: moveData, isLoading} = useFetcher('move', move.name)
     const {name, pp, type, power, accuracy, effect_entries} = !isLoading && moveData
 
     const flexBasis = { 'flex': 1}
