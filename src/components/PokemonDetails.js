@@ -6,6 +6,7 @@ import Card from "react-bootstrap/Card";
 import PokemonMove from "./PokemonMove";
 import { Link } from "react-router-dom";
 import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
+import pokeball from "../assets/pokeball.png"
 
 const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
   const { sprites, types, moves } = pokemonDetails;
@@ -68,8 +69,7 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
             <Card.Body className="d-flex flex-column align-items-center fs-4 mb-2 p-2 w-md-70">
               <Card.Text className="text-uppercase m-0">Gotta Catch 'em All!</Card.Text>
                 <button title="Click to catch this Pokemon!" style={{background: "none", border: "none"}}><Card.Img style={{height: "5rem", width: "5rem"}} 
-                 src="https://www.freepnglogos.com/uploads/pokemon-symbol-logo-png-31.png"
-                // src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Pok%C3%A9_Ball_icon.svg/1024px-Pok%C3%A9_Ball_icon.svg.png"
+                 src={pokeball}
                  /> </button>
               <Card.Text className="text-uppercase">Add {pokemonDetails.name} to Pokedex </Card.Text>
             </Card.Body>

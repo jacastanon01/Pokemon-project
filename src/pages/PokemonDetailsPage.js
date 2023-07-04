@@ -3,6 +3,7 @@ import LoadingSpinner from "../components/LoadingSpinner";
 import PokemonDetails from "../components/PokemonDetails";
 import { useFetcher } from "../hooks/useFetcher"
 import ErrorBoundary from "./ErrorBoundary";
+import Container  from "react-bootstrap/Container";
 
 const NextPokemon = ({ nextId }) => {
   const {data: next, isLoading, error } = useFetcher('pokemon', nextId)

@@ -5,8 +5,11 @@ import Buttons from "../components/Buttons";
 import LoadingSpinner from "../components/LoadingSpinner";
 import { useFetcher } from "../hooks/useFetcher";
 import ErrorBoundary from "./ErrorBoundary";
+import { useOutletContext } from "react-router-dom";
 
-function Home({ offset, setOffset }) {
+function Home() {
+
+  const { offset, setOffset } = useOutletContext()
 
   const { data, isLoading, error } = useFetcher(`pokemon?offset=${offset}`);
 
