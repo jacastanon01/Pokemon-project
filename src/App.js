@@ -5,22 +5,32 @@ import Container from "react-bootstrap/Container";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PokemonDetailsPage from "./pages/PokemonDetailsPage";
 import ErrorBoundary from "./pages/ErrorBoundary";
+import RootLayout from "./pages/RootLayout";
+import Pokedex from "./pages/Pokedex";
 
 const App = () => {
-  const [offset, setOffset] = useState(0);
+
+//   const [random, setRandom] = useState(0)
+
+//   function generateRandomPokemon(){
+//     setRandom(Math.floor(Math.random() * 200 ))
+// }
+
+
+
   return (
     <Router>
-      <Header />
-      <Container>
         <Routes>
           <Route
-            path="/Pokemon-project"
-            element={<Home offset={offset} setOffset={setOffset} />}
-          />
-          <Route path="/pokemon/:id" element={<PokemonDetailsPage />} />
-          <Route path="*" element={<ErrorBoundary />} />
+            path="/"
+            element={<RootLayout />}
+          >
+            <Route index element={<Home />} />
+            <Route path="/pokemon/:id" element={<PokemonDetailsPage />} />
+            <Route path="/pokedex" element={<Pokedex /> } />
+            <Route path="*" element={<ErrorBoundary />} />
+          </Route>
         </Routes>
-      </Container>
     </Router>
   );
 };

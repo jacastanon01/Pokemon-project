@@ -24,6 +24,12 @@ code {
     monospace;
 }
 
+.header {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid #ccc;
+}
+
 /* GRADIENT BACKGROUNDS  */
 
 .bug1 {

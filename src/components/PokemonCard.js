@@ -15,7 +15,7 @@ const PokemonCard = ({ pokemon }) => {
 
   return (
     data && (
-      <Card className="my-3 p-3 rounded text-center shadow mb-5">
+      <Card className="p-3 rounded text-center shadow mb-5">
         <Link to={`/pokemon/${data.id}`} style={{ textDecoration: "none" }}>
           <Card.Img
             style={{ width: "8rem" }}
