@@ -9,8 +9,8 @@ export const useFetcher = (path, name) => {
 
     const url = name ? `${BASE_URL}${path}/${name}` : BASE_URL + path
     const { data, error, isLoading } = useSwr(url.toString())
-    console.log(JSON.stringify(data) + "DATA")
-    console.log(url)
+    // console.log(JSON.stringify(data) + "DATA")
+    // console.log(url)
 
     return { data, error, isLoading }
 }

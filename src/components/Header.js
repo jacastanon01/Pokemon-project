@@ -2,8 +2,6 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import { LinkContainer } from "react-router-bootstrap";
-import { FaHome } from "react-icons/fa";
-import { SiPokemon } from "react-icons/si";
 import Nav from "react-bootstrap/Nav";
 import { Image } from "react-bootstrap";
 import pokeball from "../assets/pokeball-symbol.svg.png"
@@ -11,16 +9,14 @@ import pokemonLogo from "../assets/poke-logo.png"
 
 //#2972b7 #fc0
 
-const Header = () => {
-  function generateRandomPokemon(){
-    return (Math.floor(Math.random() * 200 ))
-  }
-  generateRandomPokemon()
+const Header = ({ random }) => {
+
   return (
     <header className="header m-3">
       <Navbar collapseOnSelect expand="sm">
         <Container>
-          <LinkContainer to={`/pokemon/${123}`}>
+          
+          <LinkContainer to={`/pokemon/${random}`}>
             <Nav.Link className="text-uppercase">
               Random Pokemon
             </Nav.Link>          
