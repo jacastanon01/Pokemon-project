@@ -18,15 +18,15 @@ const Header = () => {
   generateRandomPokemon()
   return (
     <header className="header m-3">
-      <Navbar collapseOnSelect expand="sm" className="">
+      <Navbar collapseOnSelect expand="sm">
         <Container>
-          <LinkContainer className="text-primary" to={`/pokemon/${123}`}>
-            <Navbar.Brand>
+          <LinkContainer to={`/pokemon/${123}`}>
+            <Nav.Link className="text-uppercase">
               Random Pokemon
-            </Navbar.Brand>
+            </Nav.Link>          
           </LinkContainer>
 
-          <LinkContainer to="/">
+          <LinkContainer to="/pokemon-project">
             <Navbar.Brand className="">
               <Image
                 style={{ height: "auto", width: "12rem" }}
