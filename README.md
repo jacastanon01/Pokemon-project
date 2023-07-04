@@ -1,6 +1,6 @@
 <h1 align="center">Pokemon Project</h1>
 
-<p align="center">The PokeApi is a RESTful API created to explore the wide world of Pokemon. This project utilizes the axios library to fetch data from multiple endpoints and React for the UI. Browse the multiple first generation Pokemon of your childhood on any device. More features are coming! </p>
+<p align="center">The PokeApi is a RESTful API created to explore the wide world of Pokemon. This project utilizes SWR to fetch and cache data from multiple endpoints. The UI is constructed using React, React-Bootstrap and Bootstrap and navigation between pages is handled by React Router.  Browse the multiple first generation Pokemon of your childhood on any device. More features are coming! </p>
 
 ## Links
 
@@ -10,11 +10,22 @@
 
 - [API](https://pokeapi.co/)
 
-![Details page](images/Screenshot%202023-04-25%20at%2010.23.19%20PM.png "Details page")
+![Home](images/Screenshot%202023-07-04%20at%2010.35.36%20AM.png)
 
-![](images/Screenshot%202023-04-25%20at%2011.51.16%20PM.png)
+![Details page](images/Screenshot%202023-07-04%20at%2010.38.07%20AM.png "Details page")
 
-![](images/Screenshot%202023-04-25%20at%2011.54.56%20PM.png)
+![Details page](images/Screenshot%202023-07-04%20at%2010.38.18%20AM.png)
+
+![Mobile](images/Screenshot%202023-07-04%20at%2010.39.06%20AM.png)
+
+## Built With
+
+- JavaScript
+- React
+- React-Bootstrap
+- Bootstrap
+- React Router 6
+- SWR
 
 ## Available Scripts
 
@@ -42,11 +53,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-## Built With
-
-- JavaScript
-- React
-- Bootstrap
-- HTML
-- CSS
