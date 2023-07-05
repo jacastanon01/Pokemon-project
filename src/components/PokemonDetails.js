@@ -7,7 +7,10 @@ import PokemonMove from "./PokemonMove";
 import { Link } from "react-router-dom";
 import { GrLinkNext, GrLinkPrevious } from "react-icons/gr";
 import pokeball from "../assets/pokeball.png";
-import { CaughtPokemonContext, CaughtPokemonContextDispatch } from "../context/CaughtPokemonContext";
+import {
+  CaughtPokemonContext,
+  CaughtPokemonContextDispatch,
+} from "../context/CaughtPokemonContext";
 import { CatchModal } from "./CatchModal";
 
 const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
@@ -16,10 +19,10 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
   const { name, sprites, types, moves } = pokemonDetails;
   const fiveMoves = moves && moves.slice(0, 5);
   const [showMoves, setShowMoves] = useState(false);
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState(false);
 
   let isPokemonCaught = false;
-  capturedPokemon.forEach(p => p.name === name && (isPokemonCaught = true));
+  capturedPokemon.forEach((p) => p.name === name && (isPokemonCaught = true));
 
   const moveGroup = fiveMoves?.map(({ move }) => {
     return move ? (
@@ -30,14 +33,19 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
   });
 
   const handleHide = () => {
-    setShowModal(false)
-  }
-
+    setShowModal(false);
+  };
 
   return (
     <Row className="justify-content-center">
       <Col className="">
-      {showModal && <CatchModal pokemonName={name} showModal={showModal} onHide={handleHide} />}
+        {showModal && (
+          <CatchModal
+            pokemonName={name}
+            showModal={showModal}
+            onHide={handleHide}
+          />
+        )}
         <Col id="IMAGES">
           <Card
             className=" d-flex justify-content-center align-items-center position-relative"
@@ -86,11 +94,11 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
                 style={{ background: "none", border: "none" }}
                 disabled={isPokemonCaught}
                 onClick={() => {
-                  setShowModal(true)
+                  setShowModal(true);
                   dispatch({
                     type: "CATCH",
-                    pokemon: pokemonDetails
-                  })
+                    pokemon: pokemonDetails,
+                  });
                 }}
               >
                 <Card.Img
@@ -99,7 +107,9 @@ const PokemonDetails = ({ pokemonDetails, listMoves, id }) => {
                 />{" "}
               </button>
               <Card.Text className="text-uppercase">
-                { !isPokemonCaught ? `Add ${name} to Pokedex` : `And you caught ${name}!` }
+                {!isPokemonCaught
+                  ? `Add ${name} to Pokedex`
+                  : `And you caught ${name}!`}
               </Card.Text>
             </Card.Body>
             <Card.Img

@@ -20,8 +20,8 @@ const RootLayout = () => {
 
     return (
         <Container>
-            <Header random={random}/>
-            <Outlet context={{offset, setOffset}} />
+            <Header random={random} />
+            <Outlet context={{offset, setOffset, random}} />
         </Container>
     )
 }
