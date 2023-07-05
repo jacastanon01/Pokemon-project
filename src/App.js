@@ -17,7 +17,7 @@ const App = () => {
           >
             <Route path={"/pokemon-project"} element={<Home />} />
             <Route path="/pokemon/:id" element={<PokemonDetailsPage />} />
-            <Route path="pokedex" element={<Pokedex />} />
+            <Route path="/pokedex" element={<Pokedex />} />
             <Route path="*" element={<ErrorBoundary />} />
           </Route>
         </Routes>

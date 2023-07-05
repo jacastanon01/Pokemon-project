@@ -6,6 +6,7 @@ import Nav from "react-bootstrap/Nav";
 import { Image } from "react-bootstrap";
 import pokeball from "../assets/pokeball-symbol.svg.png"
 import pokemonLogo from "../assets/poke-logo.png"
+import { GiPerspectiveDiceSixFacesRandom } from "react-icons/gi"
 
 //#2972b7 #fc0
 
@@ -18,7 +19,7 @@ const Header = ({ random }) => {
           
           <LinkContainer to={`/pokemon/${random}`}>
             <Nav.Link className="text-uppercase">
-              Random Pokemon
+              Random Pokemon <GiPerspectiveDiceSixFacesRandom style={{width: "2.5rem", height: "auto"}}/>
             </Nav.Link>          
           </LinkContainer>
 
@@ -38,8 +39,8 @@ const Header = ({ random }) => {
             className="justify-content-end"
           >
             <LinkContainer to="/pokedex">
-              <Nav.Link pokedex className="text-uppercase">
-                My pokemon
+              <Nav.Link className="text-uppercase">
+                pokedex {" "}
                 <img
                   style={{ height: "auto", width: "2.5rem" }}
                   src={pokeball} 

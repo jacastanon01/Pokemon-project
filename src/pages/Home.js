@@ -8,56 +8,15 @@ import ErrorBoundary from "./ErrorBoundary";
 import { useOutletContext } from "react-router-dom";
 
 function Home() {
-
   const { offset, setOffset } = useOutletContext()
-
   const { data, isLoading, error } = useFetcher(`pokemon?offset=${offset}`);
-
-  // const { data, isLoading, updateUrl } = useAxiosFetch({
-  //   ...requestObj,
-  //   dataUrl: '/'
-  // });
-
-  // const getPokemonData = () => {
-  //   try {
-  //     data?.results.map(async ({ url }) => {
-  //       const res = await api.get(url);
-  //       setPokemonData((prevState) => {
-  //         //if (true) console.log(prevState)
-  //         prevState = [...prevState, res.data];
-  //         //let filteredState = prevState.filter(p => res.data.name !== p.name)
-  //         prevState.sort((a, b) => (a.id > b.id ? 1 : -1));
-  //         return prevState;
-        
-  //       });
-  //     });
-  //   } catch (err) {
-  //     console.log(err.message);
-  //   }
-  // };
 
   const handleClickNext = () => {
     setOffset((prev) => prev + 20);
-    //axios.defaults.baseURL = data.next.toString();
-    //updateUrl(data.next);
   };
   const handleClickPrev = () => {
     setOffset((prev) => (prev > 0 ? prev - 20 : 0));
-    //axios.defaults.baseURL = data.previous.toString();
-    //updateUrl(data.previous);
   };
-
-  // let ignore = true;
-  // useEffect(() => {
-  //   if (ignore) {
-  //     getPokemonData();
-  //     //data && preload(data.next)
-  //   }
-
-  //   return () => {
-  //     ignore = false;
-  //   };
-  // }, [data, offset]);
 
   if (error)
     return (
