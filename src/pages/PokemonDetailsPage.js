@@ -23,22 +23,7 @@ const NextPokemon = ({ nextId }) => {
 
 const PokemonDetailsPage = () => {
   const { id } = useParams();
-
   const { data, error, isLoading } = useFetcher('pokemon', id)
-
-  // const getPokemonData = async (result) => {
-  //   if (!error && Object.keys(data).length > 0) {
-  //       setPokemonDetails(result)
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   let mounted = false
-  //   if (!mounted) {
-  //     getPokemonData(data);
-  //   }
-  //   return () => mounted = true
-  // }, [data]);
 
   if (error) return (<ErrorBoundary />)
 
