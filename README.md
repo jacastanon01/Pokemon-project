@@ -1,6 +1,6 @@
 <h1 align="center">Pokemon Project</h1>
 
-<p align="center">The PokeApi is a RESTful API created to explore the wide world of Pokemon. This project utilizes SWR to fetch and cache data from multiple endpoints. The UI is constructed using React, React-Bootstrap and Bootstrap and navigation between pages is handled by React Router.  Browse the multiple first generation Pokemon of your childhood on any device. More features are coming! </p>
+<p align="center">The PokeApi is a RESTful API created to explore the wide world of Pokemon. This project utilizes SWR to fetch and cache data from multiple endpoints. The UI is constructed using React, React-Bootstrap and Bootstrap and navigation between pages is handled by React Router.  Browse the multiple first generation Pokemon of your childhood on any device. If you want to catch a pokemon, just click the pokeball on the details page and it will be added to your Pokedex! You can also also remove pokemon from the pokedex. </p>
 
 ## Links
 
@@ -10,14 +10,6 @@
 
 - [API](https://pokeapi.co/)
 
-![Home](images/Screenshot%202023-07-04%20at%2010.35.36%20AM.png)
-
-![Details page](images/Screenshot%202023-07-04%20at%2010.38.07%20AM.png "Details page")
-
-![Details page](images/Screenshot%202023-07-04%20at%2010.38.18%20AM.png)
-
-![Mobile](images/Screenshot%202023-07-04%20at%2010.39.06%20AM.png)
-
 ## Built With
 
 - JavaScript
@@ -26,6 +18,16 @@
 - Bootstrap
 - React Router 6
 - SWR
+- Context API
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+    <img src="images/Screenshot%202023-07-04%20at%2010.35.36%20AM.png" />
+    <img src="images/Screenshot%202023-07-04%20at%2010.38.07%20AM.png" />
+    <img src="images/Screenshot%202023-07-04%20at%2010.38.18%20AM.png" />
+    <img src="images/Screenshot%202023-07-04%20at%2010.39.06%20AM.png" />
+    <img src="images/Screenshot%202023-07-05%20at%203.17.33%20PM.png">
+    <img src="images/Screenshot%202023-07-05%20at%203.20.21%20PM.png">
+</div>
 
 ## Available Scripts
 

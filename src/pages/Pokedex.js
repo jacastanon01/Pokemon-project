@@ -16,6 +16,7 @@ const CaughtPokemonPage = () => {
 
   return (
     <>
+    <h1 className="text-center mb-5">My Pokemon:</h1>
       {capturedPokemon && capturedPokemon.length > 0 ? (
         <Row xl={3} md={2} xs={1}>
           {capturedPokemon.map((pokemon) => (
